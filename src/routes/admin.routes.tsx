@@ -75,7 +75,6 @@ export const adminSidebarPaths = adminPath.reduce(
         })),
       });
     }
-    console.log(acc);
     return acc;
   },
   []
