@@ -7,7 +7,7 @@ import { studentPath } from "../../routes/student.routes";
 
 const { Sider } = Layout;
 const Sidebar = () => {
-  const role = "faculty";
+  const role = "admin";
 
   const userRole = {
     ADMIN: "admin",
@@ -36,12 +36,12 @@ const Sidebar = () => {
     <Sider
       breakpoint="lg"
       collapsedWidth="0"
-      onBreakpoint={(broken) => {
-        console.log(broken);
-      }}
-      onCollapse={(collapsed, type) => {
-        console.log(collapsed, type);
-      }}
+      // onBreakpoint={(broken) => {
+      //   console.log(broken);
+      // }}
+      // onCollapse={(collapsed, type) => {
+      //   console.log(collapsed, type);
+      // }}
     >
       <div
         style={{
