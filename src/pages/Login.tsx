@@ -31,7 +31,13 @@ const Login = () => {
 
   return (
     <Row justify="center" align="middle" style={{ height: "100vh" }}>
-      <PHForm onsubmit={onSubmit}>
+      <PHForm
+        onsubmit={onSubmit}
+        defaultValues={{
+          id: "0001",
+          password: "admin12345",
+        }}
+      >
         <PHInput type="text" name="id" label="ID: " />
         <PHInput type="text" name="password" label="Password: " />
         <Button htmlType="submit"> Submit</Button>
