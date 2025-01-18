@@ -2,19 +2,19 @@ import { Table, TableColumnsType, TableProps } from "antd";
 import { useGetAcademicSemesterQuery } from "../../../redux/features/admin/academicManagement.api";
 
 const AcademicSemester = () => {
-  const {
-    data: { data, meta },
-  } = useGetAcademicSemesterQuery(undefined);
+  const { data: semesterData } = useGetAcademicSemesterQuery(undefined);
 
-  const tableData = data.map((item) => ({
-    _id: item._id,
-    name: item.name,
-    year: item.year,
-    startMonth: item.startMonth,
-    endMonth: item.endMonth,
-  }));
+  const tableData = semesterData?.data?.map(
+    ({ _id, name, year, startMonth, endMonth }) => ({
+      _id,
+      name,
+      year,
+      startMonth,
+      endMonth,
+    })
+  );
 
-  const columns: TableColumnsType<DataType> = [
+  const columns: TableColumnsType = [
     {
       title: "Name",
       dataIndex: "name",
@@ -40,7 +40,7 @@ const AcademicSemester = () => {
     },
   ];
 
-  const onChange: TableProps<DataType>["onChange"] = (
+  const onChange: TableProps["onChange"] = (
     pagination,
     filters,
     sorter,
