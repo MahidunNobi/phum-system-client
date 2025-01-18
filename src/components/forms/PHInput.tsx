@@ -1,4 +1,4 @@
-import { Input } from "antd";
+import { Form, Input } from "antd";
 import { Controller } from "react-hook-form";
 
 const PHInput = ({
@@ -11,13 +11,15 @@ const PHInput = ({
   label: string;
 }) => {
   return (
-    <div style={{ marginBottom: "20px" }}>
-      <label htmlFor={name}>{label}</label>
-      <Controller
-        name={name}
-        render={({ field }) => <Input {...field} type={type} id={name} />}
-      />
-    </div>
+    <Form.Item label={label}>
+      <div>
+        {/* <label htmlFor={name}>{label}</label> */}
+        <Controller
+          name={name}
+          render={({ field }) => <Input {...field} type={type} id={name} />}
+        />
+      </div>
+    </Form.Item>
   );
 };
 

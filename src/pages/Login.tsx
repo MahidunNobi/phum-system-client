@@ -15,10 +15,10 @@ const Login = () => {
 
   const [login] = useLoginMutation();
 
-  const onSubmit = async (userInfo: FieldValues) => {
+  const onSubmit = async (data: FieldValues) => {
     const toastId = toast.loading("Logging in...");
     try {
-      const res = await login(userInfo).unwrap();
+      const res = await login(data).unwrap();
       const user = verifyToken(res.data.accessToken);
       dispatch(setUser({ user, token: res.data.accessToken }));
       toast.success("Logged in", { id: toastId });

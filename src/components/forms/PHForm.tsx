@@ -1,9 +1,10 @@
+import { Form } from "antd";
 import { ReactNode } from "react";
 import { FieldValues, FormProvider, useForm } from "react-hook-form";
 
 type TFormProps = {
   children: ReactNode;
-  onsubmit: (userInfo: FieldValues) => Promise<void>;
+  onsubmit: (data: FieldValues) => void;
   defaultValues?: Record<string, any>;
 };
 
@@ -21,7 +22,9 @@ const PHForm = ({ children, onsubmit, defaultValues }: TFormProps) => {
   const methods = useForm(formConfig);
   return (
     <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(onsubmit)}>{children}</form>
+      <Form layout="vertical" onFinish={methods.handleSubmit(onsubmit)}>
+        {children}
+      </Form>
     </FormProvider>
   );
 };
