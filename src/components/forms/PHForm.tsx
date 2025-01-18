@@ -1,12 +1,12 @@
 import { ReactNode } from "react";
-import { FormProvider, useForm } from "react-hook-form";
+import { FieldValues, FormProvider, useForm } from "react-hook-form";
 
 const PHForm = ({
   children,
   onsubmit,
 }: {
   children: ReactNode;
-  onsubmit: () => any;
+  onsubmit: (userInfo: FieldValues) => Promise<void>;
 }) => {
   const methods = useForm();
   return (
