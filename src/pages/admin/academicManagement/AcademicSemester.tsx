@@ -2,11 +2,13 @@ import { Table, TableColumnsType, TableProps } from "antd";
 import { useGetAcademicSemesterQuery } from "../../../redux/features/admin/academicManagement.api";
 
 const AcademicSemester = () => {
-  const { data: semesterData } = useGetAcademicSemesterQuery(undefined);
+  const { data: semesterData } = useGetAcademicSemesterQuery([
+    { name: "name", value: "Autumn" },
+  ]);
 
   const tableData = semesterData?.data?.map(
     ({ _id, name, year, startMonth, endMonth }) => ({
-      _id,
+      key: _id,
       name,
       year,
       startMonth,
